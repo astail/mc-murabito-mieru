@@ -272,8 +272,11 @@ final class TradeHologram {
             }
         }
 
-        v.entities.add(spawnText(world, anchor, deco(Component.text(" → ", accent), muted), x, y, false));
-        x += ARROW_STEP;
+        // 支払いアイテムがある場合のみ「→」を出す（空なら行頭が「→」になるのを防ぐ）。
+        if (!ingredients.isEmpty()) {
+            v.entities.add(spawnText(world, anchor, deco(Component.text(" → ", accent), muted), x, y, false));
+            x += ARROW_STEP;
+        }
 
         appendItem(world, anchor, v, row.result(), x, y, muted, accent);
     }
@@ -303,6 +306,7 @@ final class TradeHologram {
             e.setBillboard(Display.Billboard.CENTER);
             e.setTransformation(transform(x, y, ICON_SCALE));
             e.setTeleportDuration(FOLLOW_TICKS);
+            e.setPersistent(false); // HUD 用途の一時エンティティ。保存させず、チャンクアンロード時に自動破棄させる
             e.addScoreboardTag(TAG);
             if (muted) {
                 e.setBrightness(new Display.Brightness(3, 3)); // 在庫切れは減光
@@ -321,6 +325,7 @@ final class TradeHologram {
             e.setSeeThrough(false);
             e.setShadowed(true);
             e.setBackgroundColor(Color.fromARGB(0, 0, 0, 0)); // 背景は透明（文字＋影で読ませる）
+            e.setPersistent(false); // HUD 用途の一時エンティティ。保存させず、チャンクアンロード時に自動破棄させる
             e.addScoreboardTag(TAG);
         });
     }
