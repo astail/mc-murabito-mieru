@@ -142,11 +142,11 @@ mvn clean package
 
 ### A. リリース版を使う（ビルド不要・推奨）
 
-[Releases](https://github.com/astail/minecraft-murabito-mieru/releases) から最新の `VillagerScope-<version>.jar` をダウンロードします。JDK や Maven は不要です。
+[Releases](https://github.com/astail/mc-murabito-mieru/releases) から最新の `VillagerScope-<version>.jar` をダウンロードします。JDK や Maven は不要です。
 
 ```bash
 # 最新リリースの jar をダウンロード（gh CLI を使う場合）
-gh release download --repo astail/minecraft-murabito-mieru --pattern '*.jar'
+gh release download --repo astail/mc-murabito-mieru --pattern '*.jar'
 ```
 
 ### B. 自分でビルドする
@@ -185,7 +185,7 @@ services:
       VERSION: "26.2"
       PAPER_CHANNEL: "experimental"
       PLUGINS: |
-        https://github.com/astail/minecraft-murabito-mieru/releases/download/v1.2.0/VillagerScope-1.2.0.jar
+        https://github.com/astail/mc-murabito-mieru/releases/download/v1.2.0/VillagerScope-1.2.0.jar
     volumes:
       - ./data:/data
     restart: unless-stopped
@@ -202,7 +202,7 @@ services:
       PLUGINS: |
         https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.30.5/DiscordSRV-Build-1.30.5.jar
         https://github.com/astail/minecraft-onpu/releases/download/v1.0.0/NoteScope-1.0.0.jar
-        https://github.com/astail/minecraft-murabito-mieru/releases/download/v1.2.0/VillagerScope-1.2.0.jar
+        https://github.com/astail/mc-murabito-mieru/releases/download/v1.2.0/VillagerScope-1.2.0.jar
 ```
 
 - バージョンを更新したら、URL の `v1.2.0` とファイル名を新しいリリースに合わせて変更してください（例: `.../download/v1.3.0/VillagerScope-1.3.0.jar`）。

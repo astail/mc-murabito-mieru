@@ -142,10 +142,10 @@ Put the jar in the server's `plugins/` and restart. There are two ways to get th
 
 ### A. Use a release build (no build needed, recommended)
 
-Download the latest `VillagerScope-<version>.jar` from [Releases](https://github.com/astail/minecraft-murabito-mieru/releases). No JDK or Maven required.
+Download the latest `VillagerScope-<version>.jar` from [Releases](https://github.com/astail/mc-murabito-mieru/releases). No JDK or Maven required.
 
 ```bash
-gh release download --repo astail/minecraft-murabito-mieru --pattern '*.jar'
+gh release download --repo astail/mc-murabito-mieru --pattern '*.jar'
 ```
 
 ### B. Build it yourself
@@ -182,7 +182,7 @@ services:
       VERSION: "26.2"
       PAPER_CHANNEL: "experimental"
       PLUGINS: |
-        https://github.com/astail/minecraft-murabito-mieru/releases/download/v1.2.0/VillagerScope-1.2.0.jar
+        https://github.com/astail/mc-murabito-mieru/releases/download/v1.2.0/VillagerScope-1.2.0.jar
     volumes:
       - ./data:/data
     restart: unless-stopped
@@ -199,7 +199,7 @@ services:
       PLUGINS: |
         https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.30.5/DiscordSRV-Build-1.30.5.jar
         https://github.com/astail/minecraft-onpu/releases/download/v1.0.0/NoteScope-1.0.0.jar
-        https://github.com/astail/minecraft-murabito-mieru/releases/download/v1.2.0/VillagerScope-1.2.0.jar
+        https://github.com/astail/mc-murabito-mieru/releases/download/v1.2.0/VillagerScope-1.2.0.jar
 ```
 
 - When you cut a new release, update the `v1.2.0` and filename in the URL (e.g. `.../download/v1.3.0/VillagerScope-1.3.0.jar`).
